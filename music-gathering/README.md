@@ -57,6 +57,37 @@ mvn  spring-boot:run
 ```
 This configuration was designed to exemplify a CI environment and extract some embedded implementations. More about this is explained later.
 
+## Tests
+
+First try (Raimundos):
+``` sh
+curl -X GET \
+  http://localhost:8080/v1/artists/1c80f885-e832-4b84-864b-5deeda6a1248 \
+  -H 'cache-control: no-cache'
+
+{"message":"Unable to find artist MBID by now. We are collecting information and if this one exists, should by here soon. Try in some minutes"}⏎
+```
+The result will be a async message (see Architecture)
+
+Wait for few seconds and try again the same call. The result should be a  Raimundos band json response.
+
+Others calls:
+
+Ne Obliviscaris
+``` sh
+curl -X GET \
+  http://localhost:8080/v1/artists/75359245-49cf-4991-932f-e078408481f2 \
+  -H 'cache-control: no-cache'
+```
+
+Michael Jackson (Lot of Albuns)
+``` sh
+curl -X GET \
+  http://localhost:8080/v1/artists/f27ec8db-af05-4f36-916e-3d57f91ecf5e \
+  -H 'cache-control: no-cache'
+```
+
+
 ## Architecture
 The main problem to solve here is the API's rate limit. Although the proposed architecture here helps to mitigate the problem, in a real scenario (Production) the best approach is to import the MusicBrainz and CoverArt's databases to our own RBDMS, caching almost all possible results. However, these databases are huge and would make the distribution of this
 application impossible. So, to avoid that was created a subset of the MusicBrainz/CoverArt entities and an import strategy was considered out of scope, despite the real necessity on production.
