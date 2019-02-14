@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+  postgres:
+      image: postgres:9.6
+      ports:
+        - "5432:5432"
+      volumes_from:
+        - data
+      environment:
+        - POSTGRES_DB=music_gathering
+        - POSTGRES_USER=music_gathering
+        - POSTGRES_PASSWORD=music_gathering
+        - TZ=UTC
+  data:
+    image: cogniteev/echo
+    command: echo 'Data Container for PostgreSQL'
+    volumes:
+      - /var/lib/postgresql/data
