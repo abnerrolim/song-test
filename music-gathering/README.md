@@ -17,9 +17,14 @@ To test with PostgreSQL, also those below are required:
 ## Building
 First of all, clone the project to your machine:
 ``` sh
-mvn  clean install
+git clone https://github.com/abnerrolim/song-test.git
 ```
-Just build with maven as usual
+Than enter into the project root directory
+``` sh
+cd song-test/music-gathering
+```
+
+And just build with maven as usual
 ``` sh
 mvn  clean install
 ```
