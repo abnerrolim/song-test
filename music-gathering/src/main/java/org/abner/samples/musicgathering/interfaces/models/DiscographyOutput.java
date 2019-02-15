@@ -14,22 +14,6 @@ public class DiscographyOutput {
     private ArtistitOutput artist;
     private String message;
 
-    public ArtistitOutput getArtist() {
-        return artist;
-    }
-
-    public void setArtist(ArtistitOutput artist) {
-        this.artist = artist;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
     public static DiscographyOutput from(Artist artist) {
         var artistOut = new ArtistitOutput();
         artistOut.setReleasesGroup(artist.getReleasesGroup().stream()
@@ -52,6 +36,22 @@ public class DiscographyOutput {
         var disco = new DiscographyOutput();
         disco.setMessage("Unable to find artist MBID by now. We are collecting information and if this one exists, should by here soon. Try in some minutes");
         return disco;
+    }
+
+    public ArtistitOutput getArtist() {
+        return artist;
+    }
+
+    public void setArtist(ArtistitOutput artist) {
+        this.artist = artist;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     //    @Data

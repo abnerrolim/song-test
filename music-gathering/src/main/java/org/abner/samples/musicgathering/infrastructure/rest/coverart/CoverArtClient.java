@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @FeignClient(
         name = "coverart"
-        , url =  "${feign.coverart.url}"
+        , url = "${feign.coverart.url}"
         , fallback = CoverArtClient.EmptyCoverArt.class
 )
 public interface CoverArtClient {
@@ -15,7 +15,7 @@ public interface CoverArtClient {
     @RequestMapping(method = RequestMethod.GET, value = "/release-group/{mbid}", consumes = "application/json")
     CoverArt coverArt(@PathVariable(name = "mbid") String mbid);
 
-    class EmptyCoverArt implements CoverArtClient{
+    class EmptyCoverArt implements CoverArtClient {
 
         @Override
         public CoverArt coverArt(String mbid) {

@@ -7,11 +7,11 @@ import java.util.Objects;
 //@Data
 public class CoverArt {
 
-    public CoverArt(){
+    private List<Images> images;
+
+    public CoverArt() {
         this.images = new ArrayList<>();
     }
-
-    private List<Images> images;
 
     public List<Images> getImages() {
         return images;

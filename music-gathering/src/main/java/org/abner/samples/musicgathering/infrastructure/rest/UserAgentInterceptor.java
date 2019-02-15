@@ -8,6 +8,6 @@ public class UserAgentInterceptor implements RequestInterceptor {
 
     @Override
     public void apply(RequestTemplate requestTemplate) {
-        requestTemplate.header(HttpHeaders.USER_AGENT,"Music Gathering/0.0.1 ( bajalahara@gmail.com )");
+        requestTemplate.header(HttpHeaders.USER_AGENT, "Music Gathering/0.0.1 ( bajalahara@gmail.com )");
     }
 }

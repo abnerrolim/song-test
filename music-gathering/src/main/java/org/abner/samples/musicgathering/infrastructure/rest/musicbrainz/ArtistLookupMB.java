@@ -2,7 +2,6 @@ package org.abner.samples.musicgathering.infrastructure.rest.musicbrainz;
 
 
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
 //@Data
@@ -28,11 +27,11 @@ public class ArtistLookupMB {
         this.name = name;
     }
 
-    public  List<Relation> getRelations() {
+    public List<Relation> getRelations() {
         return relations;
     }
 
-    public void setRelations(List<Relation>  relations) {
+    public void setRelations(List<Relation> relations) {
         this.relations = relations;
     }
 

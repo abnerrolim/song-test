@@ -18,7 +18,7 @@ public class ReleaseGroupDB {
     private String imageResource;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="ARTIST_MBID")
+    @JoinColumn(name = "ARTIST_MBID")
     private ArtistDB artist;
 
     public String getMbid() {

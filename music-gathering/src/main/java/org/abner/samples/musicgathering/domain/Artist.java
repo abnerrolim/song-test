@@ -64,7 +64,7 @@ public class Artist {
         this.syncStatus = syncStatus;
     }
 
-    public void syncStatus(){
+    public void syncStatus() {
         if (StringUtils.isEmpty(description) && CollectionUtils.isEmpty(releasesGroup))
             syncStatus = SyncStatus.RELEASE_AND_DESCRIPTION_INCOMPLETE;
         else if (StringUtils.isEmpty(description))

@@ -153,6 +153,7 @@ list of scopes not considered in this version
  - The strategy to use MusicBrainz and CovetArt databases was domain models or an ETL strategy to import data to the current model. This decision was made because would be very time-consuming and creates a problem to distribute the application.
  - As the application was based in async message communication, a better solution to identify MBID's that doesn't exist still required. By now, the user can't have any feedback if the MBID really exists and the only way to answer this will be doing a synchronous request.
  - More ArtistDescriptionExtractor implementations. This version only attempts to show the way to solve this problem, but currently, we have only two extractors which could fail if some artist doesn't have these relations.
+ - Some comments (lombok, TODO) and unused files (renamed module-info) are left just to show the attempt of using (see Incompabilities), even if Clean Code says otherwise.
 
 A current list of TODO's:
  - Extract the Queue Consumers to another application, so can scale better. Currently is running on a single @Service. The reason was to avoid complexity to run the application.

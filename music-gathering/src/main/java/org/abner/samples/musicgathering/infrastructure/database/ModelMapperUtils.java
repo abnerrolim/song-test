@@ -6,12 +6,11 @@ import org.abner.samples.musicgathering.domain.ReleaseGroup;
 import org.abner.samples.musicgathering.domain.SyncStatus;
 import org.springframework.util.StringUtils;
 
-import java.util.stream.Collectors;
-
 public final class ModelMapperUtils {
-    private ModelMapperUtils(){}
+    private ModelMapperUtils() {
+    }
 
-    public static Artist map(ArtistDB db){
+    public static Artist map(ArtistDB db) {
         var artist = new Artist();
         artist.setMbid(db.getMbid());
         artist.setDescription(db.getDescription());
@@ -20,7 +19,7 @@ public final class ModelMapperUtils {
         return artist;
     }
 
-    public static ReleaseGroup map(ReleaseGroupDB releaseGroupDB){
+    public static ReleaseGroup map(ReleaseGroupDB releaseGroupDB) {
         var releaseGroup = new ReleaseGroup();
         releaseGroup.setImageResource(releaseGroupDB.getImageResource());
         releaseGroup.setMbid(releaseGroupDB.getMbid());
@@ -29,7 +28,7 @@ public final class ModelMapperUtils {
         return releaseGroup;
     }
 
-    public static References map(ArtistInfoSourceDB artistInfoSourceDB){
+    public static References map(ArtistInfoSourceDB artistInfoSourceDB) {
         var ref = new References();
         ref.setResource(artistInfoSourceDB.getResource());
         ref.setType(artistInfoSourceDB.getType());
@@ -38,17 +37,17 @@ public final class ModelMapperUtils {
         return ref;
     }
 
-    public static SyncStatus infoStatus(ArtistDB artistDB){
-        if(artistDB.getInfoCompleted() && !StringUtils.isEmpty(artistDB.getDescription()))
+    public static SyncStatus infoStatus(ArtistDB artistDB) {
+        if (artistDB.getInfoCompleted() && !StringUtils.isEmpty(artistDB.getDescription()))
             return SyncStatus.FULL;
-        if(!artistDB.getInfoCompleted() && StringUtils.isEmpty(artistDB.getDescription()))
+        if (!artistDB.getInfoCompleted() && StringUtils.isEmpty(artistDB.getDescription()))
             return SyncStatus.RELEASE_AND_DESCRIPTION_INCOMPLETE;
-        if(!artistDB.getInfoCompleted())
+        if (!artistDB.getInfoCompleted())
             return SyncStatus.RELEASE_INCOMPLETE;
         return SyncStatus.DESCRIPTION_INCOMPLETE;
     }
 
-    public static ArtistDB map(Artist artist){
+    public static ArtistDB map(Artist artist) {
         var db = new ArtistDB();
         db.setDescription(artist.getDescription());
         db.setMbid(artist.getMbid());
@@ -57,7 +56,7 @@ public final class ModelMapperUtils {
         return db;
     }
 
-    public static ReleaseGroupDB map(ReleaseGroup releaseGroup){
+    public static ReleaseGroupDB map(ReleaseGroup releaseGroup) {
         var relGroupDB = new ReleaseGroupDB();
         relGroupDB.setArtist(new ArtistDB(releaseGroup.getActorMbid()));
         relGroupDB.setTitle(releaseGroup.getTitle());
@@ -66,7 +65,7 @@ public final class ModelMapperUtils {
         return relGroupDB;
     }
 
-    public static ArtistInfoSourceDB map(References reference){
+    public static ArtistInfoSourceDB map(References reference) {
         var infoSource = new ArtistInfoSourceDB();
         infoSource.setArtist(new ArtistDB(reference.getActorMbid()));
         infoSource.setMbid(reference.getId());

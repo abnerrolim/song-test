@@ -1,6 +1,6 @@
 package org.abner.samples.musicgathering.domain;
 
-public enum  SyncStatus {
+public enum SyncStatus {
     FULL,
     RELEASE_INCOMPLETE,
     DESCRIPTION_INCOMPLETE,

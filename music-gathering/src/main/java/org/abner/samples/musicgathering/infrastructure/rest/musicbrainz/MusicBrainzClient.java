@@ -1,6 +1,5 @@
 package org.abner.samples.musicgathering.infrastructure.rest.musicbrainz;
 
-import org.abner.samples.musicgathering.infrastructure.database.ReleaseGroupDB;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @FeignClient(
         name = "musicbrainz"
         , url = "${feign.musicbrainz.url}"
-        , fallback =   MusicBrainzClient.EmptyMusicBrainzClient.class
+        , fallback = MusicBrainzClient.EmptyMusicBrainzClient.class
 )
 public interface MusicBrainzClient {
 

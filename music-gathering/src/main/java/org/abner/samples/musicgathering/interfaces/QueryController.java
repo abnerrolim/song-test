@@ -15,7 +15,7 @@ public class QueryController {
     private ArtistService artistService;
 
     @Autowired
-    public QueryController(ArtistService artistService){
+    public QueryController(ArtistService artistService) {
         this.artistService = artistService;
     }
 
@@ -23,13 +23,13 @@ public class QueryController {
             value = "/v1/artists/{mbid}",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<DiscographyOutput> getDiscography(@PathVariable("mbid") String mbid){
-            var optArtist = artistService.findByMDIB(mbid);
-            var discoOutput = optArtist.map(DiscographyOutput::from).orElse(DiscographyOutput.from());
-            if(optArtist.isPresent())
-                return ResponseEntity.ok(discoOutput);
-            else
-                return ResponseEntity.accepted().body(discoOutput);
+    public ResponseEntity<DiscographyOutput> getDiscography(@PathVariable("mbid") String mbid) {
+        var optArtist = artistService.findByMDIB(mbid);
+        var discoOutput = optArtist.map(DiscographyOutput::from).orElse(DiscographyOutput.from());
+        if (optArtist.isPresent())
+            return ResponseEntity.ok(discoOutput);
+        else
+            return ResponseEntity.accepted().body(discoOutput);
 
     }
 

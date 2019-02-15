@@ -4,7 +4,6 @@ package org.abner.samples.musicgathering.infrastructure.rest.musicbrainz;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
 //@Data

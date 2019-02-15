@@ -1,14 +1,7 @@
 package org.abner.samples.musicgathering.infrastructure.rest.description.discog;
 
-import feign.Feign;
-import feign.Logger;
-import feign.jackson.JacksonDecoder;
-import feign.jackson.JacksonEncoder;
-import feign.slf4j.Slf4jLogger;
 import org.abner.samples.musicgathering.domain.References;
 import org.abner.samples.musicgathering.infrastructure.rest.description.ArtistDescriptionExtractor;
-import org.abner.samples.musicgathering.infrastructure.rest.musicbrainz.ArtistLookupMB;
-import org.abner.samples.musicgathering.infrastructure.rest.UserAgentInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +15,7 @@ public class DiscogExtractor implements ArtistDescriptionExtractor {
     private References reference;
 
     @Autowired
-    public DiscogExtractor(DiscogClient discogClient){
+    public DiscogExtractor(DiscogClient discogClient) {
         this.discogClient = discogClient;
     }
 
@@ -30,7 +23,7 @@ public class DiscogExtractor implements ArtistDescriptionExtractor {
     public String extract() {
         Objects.requireNonNull(reference);
         var resource = reference.getResource();
-        if(resource.lastIndexOf("/") < resource.length()) {
+        if (resource.lastIndexOf("/") < resource.length()) {
             var artistID = resource.substring(resource.lastIndexOf("/") + 1);
             return discogClient.artistProfile(artistID).getProfile();
         }
@@ -40,7 +33,7 @@ public class DiscogExtractor implements ArtistDescriptionExtractor {
     @Override
     public Boolean apply(References referenceCandidate) {
         var applied = DISCOGS_TYPE.equals(referenceCandidate.getType());
-        if(applied)
+        if (applied)
             this.reference = referenceCandidate;
         return applied;
     }

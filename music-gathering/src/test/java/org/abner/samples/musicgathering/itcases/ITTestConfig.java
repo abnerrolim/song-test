@@ -1,9 +1,7 @@
 package org.abner.samples.musicgathering.itcases;
 
 import org.abner.samples.musicgathering.MusicGatheringConfiguration;
-import org.apache.catalina.Server;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
-import org.springframework.cloud.netflix.ribbon.StaticServerList;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;

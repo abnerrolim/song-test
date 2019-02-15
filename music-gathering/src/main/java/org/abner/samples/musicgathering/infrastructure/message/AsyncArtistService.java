@@ -19,12 +19,11 @@ import java.util.logging.Logger;
 public class AsyncArtistService {
 
 
+    private static final Logger LOG = Logger.getLogger(AsyncArtistService.class.getName());
     private final ArtistRepository databaseRepo;
     private final ArtistRepository restRepo;
     private final JmsTemplate jmsTemplate;
     private final ArtistDescriptionExtractorFactory descriptionExtractorFactory;
-
-    private static final Logger LOG = Logger.getLogger(AsyncArtistService.class.getName());
 
     @Autowired
     public AsyncArtistService(

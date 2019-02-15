@@ -12,7 +12,9 @@ public interface ArtistRepository {
     Optional<Artist> findByMBID(String mbid);
 
     void save(Artist artist);
+
     void save(ReleaseGroup releaseGroup);
+
     void save(References reference);
 
     Collection<ReleaseGroup> findByActorMBID(String mbid);

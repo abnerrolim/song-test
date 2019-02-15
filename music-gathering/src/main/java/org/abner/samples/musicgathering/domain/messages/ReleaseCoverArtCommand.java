@@ -10,7 +10,10 @@ public class ReleaseCoverArtCommand {
         this.mbid = mdib;
     }
 
-    public ReleaseCoverArtCommand(){};
+    public ReleaseCoverArtCommand() {
+    }
+
+    ;
 
     public String getMbid() {
         return mbid;

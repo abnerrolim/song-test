@@ -3,10 +3,10 @@ package org.abner.samples.musicgathering.infrastructure.database;
 
 import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Objects;
 
 @Entity(name = "ARTIST")
@@ -31,9 +31,10 @@ public class ArtistDB {
     @Column(name = "IS_INFO_COMPLETE")
     private Boolean infoCompleted;
 
-    public ArtistDB(){}
+    public ArtistDB() {
+    }
 
-    public ArtistDB(String mbid){
+    public ArtistDB(String mbid) {
         this.mbid = mbid;
     }
 

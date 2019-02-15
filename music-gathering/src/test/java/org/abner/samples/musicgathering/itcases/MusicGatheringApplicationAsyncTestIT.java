@@ -33,14 +33,13 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class MusicGatheringApplicationAsyncTestIT {
 
     @Autowired
+    MockMvc mockMvc;
+    @Autowired
     private JmsTemplate jmsTemplate;
     @Autowired
     private JmsListenerJoiner jmsListenerJoiner;
     @Autowired
     private AsyncArtistService asyncArtistService;
-    @Autowired
-    MockMvc mockMvc;
-
     @Autowired
     @Qualifier("database")
     private ArtistRepository database;

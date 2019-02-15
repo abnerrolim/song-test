@@ -10,7 +10,10 @@ public class ReleasesCommand {
         this.mbid = mdib;
     }
 
-    public ReleasesCommand(){};
+    public ReleasesCommand() {
+    }
+
+    ;
 
     public String getMbid() {
         return mbid;
