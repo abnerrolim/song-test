@@ -40,7 +40,7 @@ public class AsyncArtistService {
     }
 
 
-    @JmsListener(destination = MessageDestinationChannels.ARTIST, containerFactory = "myFactory")
+    @JmsListener(destination = MessageDestinationChannels.ARTIST, containerFactory = "jmsConnectionFactory")
     public void receiveMessage(ArtistCommand artistCommand) {
 
         LOG.log(Level.INFO, "ArtistCommand received {0}", artistCommand);
@@ -51,7 +51,7 @@ public class AsyncArtistService {
         });
     }
 
-    @JmsListener(destination = MessageDestinationChannels.ARTIST_DESCRIPTION, containerFactory = "myFactory")
+    @JmsListener(destination = MessageDestinationChannels.ARTIST_DESCRIPTION, containerFactory = "jmsConnectionFactory")
     public void receiveMessage(ArtistDescriptionCommand artistDescriptionCommand) {
         LOG.log(Level.INFO, "ArtistDescriptionCommand received {0}", artistDescriptionCommand);
         databaseRepo.findByMBID(artistDescriptionCommand.getMbid()).ifPresent(artist -> {
@@ -67,7 +67,7 @@ public class AsyncArtistService {
     }
 
 
-    @JmsListener(destination = MessageDestinationChannels.RELEASES, containerFactory = "myFactory")
+    @JmsListener(destination = MessageDestinationChannels.RELEASES, containerFactory = "jmsConnectionFactory")
     public void receiveMessage(ReleasesCommand releasesCommand) {
         LOG.log(Level.INFO, "ReleasesCommand received {0}", releasesCommand);
         databaseRepo.findByMBID(releasesCommand.getMbid()).ifPresent(artist -> {
@@ -79,7 +79,7 @@ public class AsyncArtistService {
         });
     }
 
-    @JmsListener(destination = MessageDestinationChannels.RELEASES_COVER_ART, containerFactory = "myFactory")
+    @JmsListener(destination = MessageDestinationChannels.RELEASES_COVER_ART, containerFactory = "jmsConnectionFactory")
     public void receiveMessage(ReleaseCoverArtCommand releaseCoverArtCommand) {
         LOG.log(Level.INFO, "ReleaseCoverArtCommand received {0}", releaseCoverArtCommand);
         databaseRepo.findByReleaseGroupMBID(releaseCoverArtCommand.getMbid()).ifPresent(releaseGroupDB -> {

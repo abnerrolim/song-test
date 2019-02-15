@@ -58,7 +58,7 @@ mvn  spring-boot:run
 This configuration was designed to exemplify a CI environment and extract some embedded implementations. More about this is explained later.
 
 ## Tests
-
+### Manual
 First try (Raimundos):
 ``` sh
 curl -X GET \
@@ -87,6 +87,20 @@ curl -X GET \
   -H 'cache-control: no-cache'
 ```
 
+### Automated System Test
+By default the smoke system test are disabled. To run all you need is execute
+``` sh
+mvn verify -Dskip.it=false
+```
+Despite the IT termination of the test class MusicGatheringApplicationAsyncTestIT, the test is running without any mock or stubby of external dependencies, message broker or database.
+
+It's important to note that those tests will be influenced by network instability or external service instability and can fail by timeout, as example.
+
+### Unit Test
+Unit test are executed by default if you not explicited skip
+``` sh
+mvn verify
+```
 
 ## Architecture
 The main problem to solve here is the API's rate limit. Although the proposed architecture here helps to mitigate the problem, in a real scenario (Production) the best approach is to import the MusicBrainz and CoverArt's databases to our own RBDMS, caching almost all possible results. However, these databases are huge and would make the distribution of this
@@ -108,6 +122,8 @@ To achieve this, the application made use of:
  - Spring data JPA/HIbernate: relational mapping
  - Spring Cache: to cache previous responses from database.
 
+ Additionally, all the application was designed to run with java 9 > modules but was removed because of spring boot test incompabilities (see Incompabilities).
+
 ### Calling API's
 The first API to be called is invoked by the ArtistCommand. Is the Music Brainz lookup artist API and returns artist details (id, name) and a series of relations. The release groups aren't queried here, because this API doesn't support pagination.
 ```
@@ -116,9 +132,9 @@ http://musicbrainz.org/ws/2/artist/{mbid}?fmt=json&inc=url-rels
 The second extracts the description from the relations of an artist when an ArtistDescriptionCommand arrives. The strategy here is an ArtistDescriptionExtractor interface and an ArtistDescriptionExtractorFactory that applies the relation to an extractor if it can handles that relation.
 With this approach, the application can have many extractors as required to be resilient. On this application, a DiscogExtractor and a RateYourMusicExtractor are implemented. The reasons behind the decision were because few relations have API's and Discog have one. The reason it extends with an additional source (RateYourMusic) is that discog have a low rate limit and not all artists have discog relations. So an HTML parser of RateYourMusic was the solution.
 ```
-#discog
+//discog
 https://api.discogs.com/artists/{discogid}
-#RateYourMusic
+//RateYourMusic
 https://rateyourmusic.com/artist/michael_jackson
 ```
 The third command is ReleasesCommand that retrieves from Music Brainz all releases groups of albums of that artist. If the artist has more than 100 occurrences, it will be iterated on the pagination until reaching the total.
@@ -132,7 +148,11 @@ http://coverartarchive.org/release-group/{mbid}
 
 
 ### Out of Scope and TODO's
-As out 0f scope, mainly was the strategy to use MusicBrainz and CovetArt databases was domain models or an ETL strategy to import data to the current model. This decision was made because would be very time-consuming and creates a problem to distribute the application.
+
+list of scopes not considered in this version
+ - The strategy to use MusicBrainz and CovetArt databases was domain models or an ETL strategy to import data to the current model. This decision was made because would be very time-consuming and creates a problem to distribute the application.
+ - As the application was based in async message communication, a better solution to identify MBID's that doesn't exist still required. By now, the user can't have any feedback if the MBID really exists and the only way to answer this will be doing a synchronous request.
+ - More ArtistDescriptionExtractor implementations. This version only attempts to show the way to solve this problem, but currently, we have only two extractors which could fail if some artist doesn't have these relations.
 
 A current list of TODO's:
  - Extract the Queue Consumers to another application, so can scale better. Currently is running on a single @Service. The reason was to avoid complexity to run the application.
@@ -140,10 +160,13 @@ A current list of TODO's:
  - A not-embedded cache. Currently the application uses ConcurrentMapCacheManager. The reason was to avoid complexity to run the application.
  - A not-embedded RBDMS. Currently the application uses HSQL (by default). The reason was to avoid complexity to run the application.
  - As result of using ConcurrentMapCacheManager, it's not possible define a cache TTL. Actually, the cache on database layer is commented to allow a visualization of the asynchronous updates.
- - To make use of lombok. All lombok annotations was commented because lombok doesn't work well with java modules.
- - A better solution for java-module conflicts, some used libs aren't fully compatible with java modules.
- - Control for API's consuming. Currently the strategy for dealing with API's rate limits relay on Hystryx, but it's possible to reject to process a Command Message with some API reach its limits.
- - Better logic to choose which ArtistDescriptionExtractor will execute. Today it's simple executes linear until find one that can extract the description.
- - More ArtistDescriptionExtractor strategies.
+ - Make use of lombok. All lombok annotations was commented because lombok doesn't work well with java modules.
+ - A better solution for java-module conflicts, currently the module-info file exists, but was renamed.
+ - Control for API's consuming. Currently the strategy for dealing with API's rate limits is based on Hystryx closed/open circuits, but it's possible to reject consuming a Command Message based on API rate-limits. Was not implemented by now because of complexity.
+ - Better logic to choose which ArtistDescriptionExtractor will execute. Today it's simple executes all until find one that can extract the description.
  - A recurrent job to maintain the data correctness, searching for null attributes of missing Command Messages (description null, album image null) or /not_ready_default_none.jpg' album images
  - More tests
+
+## Incompabilities
+  - SpringBootTest can't read project context of java module projects https://github.com/spring-projects/spring-framework/issues/21515.
+  - Lombok doesn't workd properly with java module projects

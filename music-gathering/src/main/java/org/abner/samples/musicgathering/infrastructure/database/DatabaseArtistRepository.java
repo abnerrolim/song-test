@@ -7,12 +7,13 @@ import org.abner.samples.musicgathering.domain.ReleaseGroup;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-@Repository
+@Service
 @Qualifier("database")
 public class DatabaseArtistRepository implements ArtistRepository {
 

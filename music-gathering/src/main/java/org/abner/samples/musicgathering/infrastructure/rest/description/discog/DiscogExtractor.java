@@ -30,8 +30,11 @@ public class DiscogExtractor implements ArtistDescriptionExtractor {
     public String extract() {
         Objects.requireNonNull(reference);
         var resource = reference.getResource();
-        var artistID = resource.substring(resource.lastIndexOf("/"));
-        return discogClient.artistProfile(artistID).getProfile();
+        if(resource.lastIndexOf("/") < resource.length()) {
+            var artistID = resource.substring(resource.lastIndexOf("/") + 1);
+            return discogClient.artistProfile(artistID).getProfile();
+        }
+        return "";
     }
 
     @Override

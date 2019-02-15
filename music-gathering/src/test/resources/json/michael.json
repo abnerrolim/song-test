@@ -1,0 +1,291 @@
+{
+  "profile": "American singer, dancer, entertainer, songwriter, producer and recording artist.\r\n\r\nBorn: 29 August 1958 in Gary, Indiana, USA. \r\nDied: 25 June 2009 in Los Angeles, California, USA (aged 50). \r\n\r\nKnown affectionately as the \"King Of Pop\", Jackson was a singer, dancer, musician, music producer, writer, entertainer, singer-songwriter, choreographer, record producer, recording artist, poet, arranger, businessman, philanthropist, actor, voice artist, and comedian. \r\n \r\nJackson began his career as the youngest member of [a=The Jackson 5] and started his solo recording career in 1971. Brother of recording artists [a=Jackie Jackson], [a=Janet Jackson], [a=Jermaine Jackson], [a=La Toya Jackson], [a=Marlon Jackson], [a=Randy Jackson], [a=Rebbie Jackson] & [a=Tito Jackson], as well as uncle of [a=3T].\r\n\r\nInducted into Rock And Roll Hall of Fame in 2001 (as performer).\r\n\r\nOn June 25, 2009, Michael Jackson died of acute propofol and benzodiazepine intoxication at his home on North Carolwood Drive in the Holmby Hills neighborhood of Los Angeles, CA. His personal physician, Conrad Murray, said he had found Jackson in his room, not breathing and with a barely detectable pulse, and that he administered CPR on Jackson to no avail. After a call was placed to 9-1-1 at 12:21 p.m., Jackson was treated by paramedics at the scene and was later pronounced dead at the Ronald Reagan UCLA Medical Center.",
+  "releases_url": "https://api.discogs.com/artists/15885/releases",
+  "name": "Michael Jackson",
+  "groups": [
+    {
+      "active": true,
+      "resource_url": "https://api.discogs.com/artists/41157",
+      "id": 41157,
+      "name": "The Jackson 5"
+    },
+    {
+      "active": true,
+      "resource_url": "https://api.discogs.com/artists/169154",
+      "id": 169154,
+      "name": "The Jacksons"
+    },
+    {
+      "active": true,
+      "resource_url": "https://api.discogs.com/artists/377411",
+      "id": 377411,
+      "name": "The Wiz Stars"
+    },
+    {
+      "active": true,
+      "resource_url": "https://api.discogs.com/artists/151313",
+      "id": 151313,
+      "name": "USA For Africa"
+    }
+  ],
+  "namevariations": [
+    "J. M. Jackson",
+    "J.Jackson",
+    "Jacko",
+    "Jackson",
+    "Jackson Michael Joe",
+    "Jackson, Michael Joe",
+    "Jaxson",
+    "Just Michael",
+    "M J",
+    "M Jackson",
+    "M, Jackson",
+    "M.  Jackson",
+    "M. J.",
+    "M. J. Jackson",
+    "M. Jackson",
+    "M. Jackson Mijac Jackson",
+    "M.J",
+    "M.J.",
+    "M.J. Jackson",
+    "M.J.Jackson",
+    "M.Jackson",
+    "Michael",
+    "Michael J",
+    "Michael J.",
+    "Michael J. Jackson",
+    "Michael Jack50n",
+    "Michael Jack5on",
+    "Michaël Jackson",
+    "Michael Jackson (Mijac Music)",
+    "Michael Jackson / Captain Eo",
+    "Michael Jackson's",
+    "Michael Jakson",
+    "Michael Joe Jackson",
+    "MichaelJackson",
+    "Micheal Jackson",
+    "Mickaël",
+    "Mickael Jackson",
+    "Mickel Jackson",
+    "MJ",
+    "MJ For Africa",
+    "MJ The One",
+    "MJ5",
+    "MJackson",
+    "Майкл Джексон",
+    "Майкъл Джексън",
+    "マイケル・ジャクソン",
+    "杰克遜",
+    "迈克尔·杰克逊",
+    "邁克·杰克遜",
+    "邁克爾·杰克遜",
+    "麥可傑克森"
+  ],
+  "uri": "https://www.discogs.com/artist/15885-Michael-Jackson",
+  "urls": [
+    "http://www.michaeljackson.com",
+    "http://www.facebook.com/michaeljackson",
+    "http://www.instagram.com/michaeljackson",
+    "http://twitter.com/michaeljackson",
+    "http://www.vevo.com/artist/michael-jackson",
+    "http://en.wikipedia.org/wiki/Michael_Jackson",
+    "http://www.youtube.com/user/MichaelJacksonVEVO",
+    "https://www.bookogs.com/credit/124812-michael-jackson",
+    "https://www.posterogs.com/subject/7430-michael-jackson",
+    "https://www.filmo.gs/credit/71214-michael-jackson"
+  ],
+  "images": [
+    {
+      "uri": "",
+      "height": 607,
+      "width": 600,
+      "resource_url": "",
+      "type": "primary",
+      "uri150": ""
+    },
+    {
+      "uri": "",
+      "height": 600,
+      "width": 600,
+      "resource_url": "",
+      "type": "secondary",
+      "uri150": ""
+    },
+    {
+      "uri": "",
+      "height": 750,
+      "width": 500,
+      "resource_url": "",
+      "type": "secondary",
+      "uri150": ""
+    },
+    {
+      "uri": "",
+      "height": 600,
+      "width": 600,
+      "resource_url": "",
+      "type": "secondary",
+      "uri150": ""
+    },
+    {
+      "uri": "",
+      "height": 609,
+      "width": 600,
+      "resource_url": "",
+      "type": "secondary",
+      "uri150": ""
+    },
+    {
+      "uri": "",
+      "height": 860,
+      "width": 600,
+      "resource_url": "",
+      "type": "secondary",
+      "uri150": ""
+    },
+    {
+      "uri": "",
+      "height": 463,
+      "width": 600,
+      "resource_url": "",
+      "type": "secondary",
+      "uri150": ""
+    },
+    {
+      "uri": "",
+      "height": 599,
+      "width": 600,
+      "resource_url": "",
+      "type": "secondary",
+      "uri150": ""
+    },
+    {
+      "uri": "",
+      "height": 400,
+      "width": 600,
+      "resource_url": "",
+      "type": "secondary",
+      "uri150": ""
+    },
+    {
+      "uri": "",
+      "height": 360,
+      "width": 600,
+      "resource_url": "",
+      "type": "secondary",
+      "uri150": ""
+    },
+    {
+      "uri": "",
+      "height": 386,
+      "width": 600,
+      "resource_url": "",
+      "type": "secondary",
+      "uri150": ""
+    },
+    {
+      "uri": "",
+      "height": 450,
+      "width": 600,
+      "resource_url": "",
+      "type": "secondary",
+      "uri150": ""
+    },
+    {
+      "uri": "",
+      "height": 882,
+      "width": 600,
+      "resource_url": "",
+      "type": "secondary",
+      "uri150": ""
+    },
+    {
+      "uri": "",
+      "height": 337,
+      "width": 600,
+      "resource_url": "",
+      "type": "secondary",
+      "uri150": ""
+    },
+    {
+      "uri": "",
+      "height": 600,
+      "width": 600,
+      "resource_url": "",
+      "type": "secondary",
+      "uri150": ""
+    },
+    {
+      "uri": "",
+      "height": 312,
+      "width": 600,
+      "resource_url": "",
+      "type": "secondary",
+      "uri150": ""
+    },
+    {
+      "uri": "",
+      "height": 431,
+      "width": 600,
+      "resource_url": "",
+      "type": "secondary",
+      "uri150": ""
+    },
+    {
+      "uri": "",
+      "height": 536,
+      "width": 600,
+      "resource_url": "",
+      "type": "secondary",
+      "uri150": ""
+    },
+    {
+      "uri": "",
+      "height": 337,
+      "width": 600,
+      "resource_url": "",
+      "type": "secondary",
+      "uri150": ""
+    },
+    {
+      "uri": "",
+      "height": 757,
+      "width": 600,
+      "resource_url": "",
+      "type": "secondary",
+      "uri150": ""
+    },
+    {
+      "uri": "",
+      "height": 852,
+      "width": 600,
+      "resource_url": "",
+      "type": "secondary",
+      "uri150": ""
+    },
+    {
+      "uri": "",
+      "height": 338,
+      "width": 600,
+      "resource_url": "",
+      "type": "secondary",
+      "uri150": ""
+    }
+  ],
+  "resource_url": "https://api.discogs.com/artists/15885",
+  "aliases": [
+    {
+      "resource_url": "https://api.discogs.com/artists/6581720",
+      "id": 6581720,
+      "name": "King of Pop (2)"
+    },
+    {
+      "resource_url": "https://api.discogs.com/artists/470023",
+      "id": 470023,
+      "name": "W.A. Mozart"
+    }
+  ],
+  "id": 15885,
+  "data_quality": "Correct",
+  "realname": "Michael Joseph Jackson"
+}
